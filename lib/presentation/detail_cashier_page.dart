@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hastapos/application/stock/stock_cubit.dart';
+import 'package:hastapos/domain/keranjang/request/keranjang_request_model.dart';
 import 'package:heroicons/heroicons.dart';
 import '../injectable.dart';
 import '../utils/price_format.dart';
@@ -118,6 +119,12 @@ class _DetailCashierState extends State<DetailCashier> {
                                           data.harga;
                                       controller.jenisSatuan.value =
                                           data.satuan;
+                                      controller.selectedJeninsPembelianId
+                                          .value = data.id;
+                                      controller.namaBarang.value = value
+                                          .detailResponseModel
+                                          .detailStock!
+                                          .namaProduk;
                                     },
                                     child: Obx(
                                       () => Row(
@@ -143,7 +150,7 @@ class _DetailCashierState extends State<DetailCashier> {
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8),
+                                                            100),
                                                     border: Border.all(
                                                         color: primaryColor),
                                                   ),
@@ -155,7 +162,7 @@ class _DetailCashierState extends State<DetailCashier> {
                                                     color: primaryColor,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8),
+                                                            100),
                                                   ),
                                                   width: 25,
                                                   height: 25,
@@ -214,7 +221,7 @@ class _DetailCashierState extends State<DetailCashier> {
                               border: Border.all(
                                 color: Colors.grey.withOpacity(0.8),
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(100),
                             ),
                             width: 25,
                             height: 25,
@@ -231,7 +238,7 @@ class _DetailCashierState extends State<DetailCashier> {
                             child: Container(
                               decoration: BoxDecoration(
                                 border: Border.all(color: primaryColor),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(100),
                               ),
                               width: 25,
                               height: 25,
@@ -260,7 +267,7 @@ class _DetailCashierState extends State<DetailCashier> {
                       child: Container(
                         decoration: BoxDecoration(
                           border: Border.all(color: primaryColor),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(100),
                         ),
                         width: 25,
                         height: 25,
@@ -279,27 +286,37 @@ class _DetailCashierState extends State<DetailCashier> {
                   height: 15,
                 ),
                 SizedBox(
-                  height: 45,
+                  height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryColor,
-                      foregroundColor: secondaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
+                        backgroundColor: primaryColor,
+                        shape: const StadiumBorder()),
                     onPressed: controller.input_quantity.value == 0
                         ? null
                         : () {
                             Navigator.pop(context);
 
-                            controller.listKeranjang.add({
-                              "id": controller.selected_id.value,
-                              "qty": controller.input_quantity.value,
-                              "satuan": controller.jenisSatuan.value,
-                              "harga": controller.selected_harga.value
-                            });
+// {
+//                               "id_produk": controller.selected_id.value,
+//                               "kuantiti": controller.input_quantity.value,
+//                               "jenis_pembelian":
+//                                   controller.selectedJeninsPembelianId.value,
+//                               'nama_produk': controller.namaBarang.value,
+//                               "satuan": controller.jenisSatuan.value,
+//                               "harga": controller.selected_harga.value
+//                             }
+                            controller.listKeranjang.add(
+                              KeranjangRequestModel(
+                                produkId: controller.selected_id.value,
+                                kuantiti: controller.input_quantity.value,
+                                jenisPembelian:
+                                    controller.selectedJeninsPembelianId.value,
+                                harga: controller.selected_harga.value,
+                                namaProduk: controller.namaBarang.value,
+                                satuan: controller.jenisSatuan.value,
+                              ),
+                            );
                           },
                     child: Text(
                       controller.input_quantity.value == 0

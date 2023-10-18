@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:hastapos/domain/keranjang/request/keranjang_request_model.dart';
 import 'package:hastapos/domain/stock/response/stock_response_model.dart';
 
 class Controller extends GetxController {
@@ -18,6 +19,8 @@ class Controller extends GetxController {
   final input_quantity = 0.obs;
   var selected_id = 0.obs;
   var selected_harga = 0.obs;
-  var listKeranjang = [].obs;
+  var listKeranjang = <KeranjangRequestModel>[].obs;
   var jenisSatuan = "".obs;
+  var namaBarang = "".obs;
+  var selectedJeninsPembelianId = 0.obs;
 }

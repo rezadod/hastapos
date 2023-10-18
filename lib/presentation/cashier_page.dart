@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 import 'package:hastapos/application/stock/stock_cubit.dart';
 import 'package:hastapos/domain/auth/response/login_response_model.dart';
 import 'package:hastapos/domain/stock/response/stock_response_model.dart';
@@ -37,6 +38,7 @@ class _CashierPageState extends State<CashierPage> {
   final controller = Get.put(Controller());
   late String username;
   late String toko;
+
   final stockCubit = getIt<StockCubit>();
 
   @override
@@ -200,7 +202,7 @@ class _CashierPageState extends State<CashierPage> {
                         onChanged: (value) => _runFilter(value),
                       )
                     : Text(
-                        'Jaya Amarta',
+                        toko,
                         style: titleStyle.copyWith(
                           fontSize: 18,
                         ),
@@ -318,10 +320,10 @@ class _CashierPageState extends State<CashierPage> {
             : FloatingActionButton(
                 child: badges.Badge(
                   badgeStyle:
-                      const badges.BadgeStyle(badgeColor: Color(0xffF36A25)),
+                      const badges.BadgeStyle(badgeColor: secondaryColor),
                   badgeContent: Text(
                     controller.listKeranjang.length.toString(),
-                    style: tBody.copyWith(color: Colors.white, fontSize: 12),
+                    style: tBody.copyWith(color: Colors.white, fontSize: 10),
                   ),
                   child: const HeroIcon(
                     HeroIcons.shoppingBag,
@@ -334,6 +336,7 @@ class _CashierPageState extends State<CashierPage> {
                     borderRadius: BorderRadius.circular(8)),
                 onPressed: () {
                   Get.to(KeranjangPage());
+                  print(jsonEncode(controller.listKeranjang));
                 }),
       ),
     );

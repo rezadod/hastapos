@@ -681,6 +681,8 @@ abstract class _$$DatadetailStockImplCopyWith<$Res> {
       __$$DatadetailStockImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DetailStockResponseModel detailResponseModel});
+
+  $DetailStockResponseModelCopyWith<$Res> get detailResponseModel;
 }
 
 /// @nodoc
@@ -694,14 +696,23 @@ class __$$DatadetailStockImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? detailResponseModel = freezed,
+    Object? detailResponseModel = null,
   }) {
     return _then(_$DatadetailStockImpl(
-      freezed == detailResponseModel
+      null == detailResponseModel
           ? _value.detailResponseModel
           : detailResponseModel // ignore: cast_nullable_to_non_nullable
               as DetailStockResponseModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DetailStockResponseModelCopyWith<$Res> get detailResponseModel {
+    return $DetailStockResponseModelCopyWith<$Res>(_value.detailResponseModel,
+        (value) {
+      return _then(_value.copyWith(detailResponseModel: value));
+    });
   }
 }
 
@@ -723,13 +734,12 @@ class _$DatadetailStockImpl implements _DatadetailStock {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DatadetailStockImpl &&
-            const DeepCollectionEquality()
-                .equals(other.detailResponseModel, detailResponseModel));
+            (identical(other.detailResponseModel, detailResponseModel) ||
+                other.detailResponseModel == detailResponseModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(detailResponseModel));
+  int get hashCode => Object.hash(runtimeType, detailResponseModel);
 
   @JsonKey(ignore: true)
   @override

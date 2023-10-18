@@ -6,8 +6,10 @@ part 'keranjang_request_model.g.dart';
 @freezed
 class KeranjangRequestModel with _$KeranjangRequestModel {
   factory KeranjangRequestModel({
-    @Default(0) int id,
-    @Default(0) int qty,
+    @Default(0) @JsonKey(name: 'produk_id') int produkId,
+    @Default(0) int kuantiti,
+    @Default(0) @JsonKey(name: 'jenis_pembelian') int jenisPembelian,
+    @Default("") String namaProduk,
     @Default("") String satuan,
     @Default(0) int harga,
   }) = _KeranjangRequestModel;

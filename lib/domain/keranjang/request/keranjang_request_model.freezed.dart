@@ -21,8 +21,12 @@ KeranjangRequestModel _$KeranjangRequestModelFromJson(
 
 /// @nodoc
 mixin _$KeranjangRequestModel {
-  int get id => throw _privateConstructorUsedError;
-  int get qty => throw _privateConstructorUsedError;
+  @JsonKey(name: 'produk_id')
+  int get produkId => throw _privateConstructorUsedError;
+  int get kuantiti => throw _privateConstructorUsedError;
+  @JsonKey(name: 'jenis_pembelian')
+  int get jenisPembelian => throw _privateConstructorUsedError;
+  String get namaProduk => throw _privateConstructorUsedError;
   String get satuan => throw _privateConstructorUsedError;
   int get harga => throw _privateConstructorUsedError;
 
@@ -38,7 +42,13 @@ abstract class $KeranjangRequestModelCopyWith<$Res> {
           $Res Function(KeranjangRequestModel) then) =
       _$KeranjangRequestModelCopyWithImpl<$Res, KeranjangRequestModel>;
   @useResult
-  $Res call({int id, int qty, String satuan, int harga});
+  $Res call(
+      {@JsonKey(name: 'produk_id') int produkId,
+      int kuantiti,
+      @JsonKey(name: 'jenis_pembelian') int jenisPembelian,
+      String namaProduk,
+      String satuan,
+      int harga});
 }
 
 /// @nodoc
@@ -55,20 +65,30 @@ class _$KeranjangRequestModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? qty = null,
+    Object? produkId = null,
+    Object? kuantiti = null,
+    Object? jenisPembelian = null,
+    Object? namaProduk = null,
     Object? satuan = null,
     Object? harga = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      produkId: null == produkId
+          ? _value.produkId
+          : produkId // ignore: cast_nullable_to_non_nullable
               as int,
-      qty: null == qty
-          ? _value.qty
-          : qty // ignore: cast_nullable_to_non_nullable
+      kuantiti: null == kuantiti
+          ? _value.kuantiti
+          : kuantiti // ignore: cast_nullable_to_non_nullable
               as int,
+      jenisPembelian: null == jenisPembelian
+          ? _value.jenisPembelian
+          : jenisPembelian // ignore: cast_nullable_to_non_nullable
+              as int,
+      namaProduk: null == namaProduk
+          ? _value.namaProduk
+          : namaProduk // ignore: cast_nullable_to_non_nullable
+              as String,
       satuan: null == satuan
           ? _value.satuan
           : satuan // ignore: cast_nullable_to_non_nullable
@@ -90,7 +110,13 @@ abstract class _$$KeranjangRequestModelImplCopyWith<$Res>
       __$$KeranjangRequestModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, int qty, String satuan, int harga});
+  $Res call(
+      {@JsonKey(name: 'produk_id') int produkId,
+      int kuantiti,
+      @JsonKey(name: 'jenis_pembelian') int jenisPembelian,
+      String namaProduk,
+      String satuan,
+      int harga});
 }
 
 /// @nodoc
@@ -105,20 +131,30 @@ class __$$KeranjangRequestModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? qty = null,
+    Object? produkId = null,
+    Object? kuantiti = null,
+    Object? jenisPembelian = null,
+    Object? namaProduk = null,
     Object? satuan = null,
     Object? harga = null,
   }) {
     return _then(_$KeranjangRequestModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      produkId: null == produkId
+          ? _value.produkId
+          : produkId // ignore: cast_nullable_to_non_nullable
               as int,
-      qty: null == qty
-          ? _value.qty
-          : qty // ignore: cast_nullable_to_non_nullable
+      kuantiti: null == kuantiti
+          ? _value.kuantiti
+          : kuantiti // ignore: cast_nullable_to_non_nullable
               as int,
+      jenisPembelian: null == jenisPembelian
+          ? _value.jenisPembelian
+          : jenisPembelian // ignore: cast_nullable_to_non_nullable
+              as int,
+      namaProduk: null == namaProduk
+          ? _value.namaProduk
+          : namaProduk // ignore: cast_nullable_to_non_nullable
+              as String,
       satuan: null == satuan
           ? _value.satuan
           : satuan // ignore: cast_nullable_to_non_nullable
@@ -135,17 +171,28 @@ class __$$KeranjangRequestModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$KeranjangRequestModelImpl implements _KeranjangRequestModel {
   _$KeranjangRequestModelImpl(
-      {this.id = 0, this.qty = 0, this.satuan = "", this.harga = 0});
+      {@JsonKey(name: 'produk_id') this.produkId = 0,
+      this.kuantiti = 0,
+      @JsonKey(name: 'jenis_pembelian') this.jenisPembelian = 0,
+      this.namaProduk = "",
+      this.satuan = "",
+      this.harga = 0});
 
   factory _$KeranjangRequestModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$KeranjangRequestModelImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int id;
+  @JsonKey(name: 'produk_id')
+  final int produkId;
   @override
   @JsonKey()
-  final int qty;
+  final int kuantiti;
+  @override
+  @JsonKey(name: 'jenis_pembelian')
+  final int jenisPembelian;
+  @override
+  @JsonKey()
+  final String namaProduk;
   @override
   @JsonKey()
   final String satuan;
@@ -155,7 +202,7 @@ class _$KeranjangRequestModelImpl implements _KeranjangRequestModel {
 
   @override
   String toString() {
-    return 'KeranjangRequestModel(id: $id, qty: $qty, satuan: $satuan, harga: $harga)';
+    return 'KeranjangRequestModel(produkId: $produkId, kuantiti: $kuantiti, jenisPembelian: $jenisPembelian, namaProduk: $namaProduk, satuan: $satuan, harga: $harga)';
   }
 
   @override
@@ -163,15 +210,22 @@ class _$KeranjangRequestModelImpl implements _KeranjangRequestModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$KeranjangRequestModelImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.qty, qty) || other.qty == qty) &&
+            (identical(other.produkId, produkId) ||
+                other.produkId == produkId) &&
+            (identical(other.kuantiti, kuantiti) ||
+                other.kuantiti == kuantiti) &&
+            (identical(other.jenisPembelian, jenisPembelian) ||
+                other.jenisPembelian == jenisPembelian) &&
+            (identical(other.namaProduk, namaProduk) ||
+                other.namaProduk == namaProduk) &&
             (identical(other.satuan, satuan) || other.satuan == satuan) &&
             (identical(other.harga, harga) || other.harga == harga));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, qty, satuan, harga);
+  int get hashCode => Object.hash(runtimeType, produkId, kuantiti,
+      jenisPembelian, namaProduk, satuan, harga);
 
   @JsonKey(ignore: true)
   @override
@@ -190,8 +244,10 @@ class _$KeranjangRequestModelImpl implements _KeranjangRequestModel {
 
 abstract class _KeranjangRequestModel implements KeranjangRequestModel {
   factory _KeranjangRequestModel(
-      {final int id,
-      final int qty,
+      {@JsonKey(name: 'produk_id') final int produkId,
+      final int kuantiti,
+      @JsonKey(name: 'jenis_pembelian') final int jenisPembelian,
+      final String namaProduk,
       final String satuan,
       final int harga}) = _$KeranjangRequestModelImpl;
 
@@ -199,9 +255,15 @@ abstract class _KeranjangRequestModel implements KeranjangRequestModel {
       _$KeranjangRequestModelImpl.fromJson;
 
   @override
-  int get id;
+  @JsonKey(name: 'produk_id')
+  int get produkId;
   @override
-  int get qty;
+  int get kuantiti;
+  @override
+  @JsonKey(name: 'jenis_pembelian')
+  int get jenisPembelian;
+  @override
+  String get namaProduk;
   @override
   String get satuan;
   @override
