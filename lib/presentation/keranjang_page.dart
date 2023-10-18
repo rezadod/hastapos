@@ -89,7 +89,6 @@ class _KeranjangPageState extends State<KeranjangPage> {
                   itemCount: controller.listKeranjang.length,
                   itemBuilder: (context, index) {
                     var data = controller.listKeranjang[index];
-
                     return Container(
                       margin: EdgeInsets.only(
                           bottom: index == controller.listKeranjang.length - 1
@@ -116,14 +115,14 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      data.namaProduk,
+                                      data['nama_produk'],
                                       style: titleStyle.copyWith(fontSize: 14),
                                     ),
                                     const SizedBox(
                                       height: 5,
                                     ),
                                     Text(
-                                      data.satuan,
+                                      data['satuan'],
                                       style: tBody.copyWith(
                                           fontStyle: FontStyle.italic),
                                     ),
@@ -132,7 +131,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                     ),
                                     Text(
                                       CurrencyFormat.convertToIdr(
-                                          data.harga, 0),
+                                          data['harga'], 0),
                                       style: tBody.copyWith(),
                                     ),
                                   ],
@@ -162,110 +161,110 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                       children: [
                                         GestureDetector(
                                           onTap: () {
-                                            // var target = controller
-                                            //     .listKeranjang
-                                            //     .firstWhere((element) =>
-                                            //         element['id'] ==
-                                            //         data['id']);
-                                            // if (target != null) {
-                                            //   target["kuantiti"] =
-                                            //       target['kuantiti'] - 1;
+                                            var target = controller
+                                                .listKeranjang
+                                                .firstWhere((element) =>
+                                                    element['produk_id'] ==
+                                                    data['produk_id']);
+                                            if (target != null) {
+                                              target["kuantiti"] =
+                                                  target['kuantiti'] - 1;
 
-                                            //   print(target['kuantiti']);
-                                            // }
+                                              print(target['kuantiti']);
+                                            }
 
-                                            // setState(() {
-                                            //   _counter--;
-                                            // });
-                                            // target['kuantiti'] <= 1
-                                            //     ? Future.delayed(
-                                            //         const Duration(
-                                            //             milliseconds: 100),
-                                            //         () {
-                                            //           AwesomeDialog(
-                                            //             dismissOnTouchOutside:
-                                            //                 false,
-                                            //             dismissOnBackKeyPress:
-                                            //                 false,
-                                            //             context: context,
-                                            //             animType:
-                                            //                 AnimType.scale,
-                                            //             headerAnimationLoop:
-                                            //                 false,
-                                            //             dialogType:
-                                            //                 DialogType.error,
-                                            //             descTextStyle: tBody,
-                                            //             btnCancel:
-                                            //                 OutlinedButton(
-                                            //               style: ElevatedButton
-                                            //                   .styleFrom(
-                                            //                 shape:
-                                            //                     RoundedRectangleBorder(
-                                            //                   side: const BorderSide(
-                                            //                       color: Colors
-                                            //                           .green),
-                                            //                   borderRadius:
-                                            //                       BorderRadius
-                                            //                           .circular(
-                                            //                               8),
-                                            //                 ),
-                                            //               ),
-                                            //               onPressed: () {
-                                            //                 Navigator.of(
-                                            //                         context)
-                                            //                     .pop();
-                                            //               },
-                                            //               child: Text(
-                                            //                 'Batal',
-                                            //                 style:
-                                            //                     tBody.copyWith(
-                                            //                         color: Colors
-                                            //                             .green),
-                                            //               ),
-                                            //             ),
-                                            //             btnOk: ElevatedButton(
-                                            //               style: ElevatedButton
-                                            //                   .styleFrom(
-                                            //                       shape:
-                                            //                           RoundedRectangleBorder(
-                                            //                         borderRadius:
-                                            //                             BorderRadius
-                                            //                                 .circular(8),
-                                            //                       ),
-                                            //                       backgroundColor:
-                                            //                           Colors
-                                            //                               .red),
-                                            //               onPressed: () {
-                                            //                 controller
-                                            //                     .listKeranjang
-                                            //                     .remove(data);
-                                            //                 Navigator.of(
-                                            //                         context)
-                                            //                     .pop();
-                                            //               },
-                                            //               child: Text(
-                                            //                 'Hapus',
-                                            //                 style:
-                                            //                     tBody.copyWith(
-                                            //                         color: Colors
-                                            //                             .white),
-                                            //               ),
-                                            //             ),
-                                            //             buttonsTextStyle:
-                                            //                 tBody.copyWith(
-                                            //                     color: Colors
-                                            //                         .white),
-                                            //             titleTextStyle:
-                                            //                 tBody.copyWith(
-                                            //                     fontSize: 16,
-                                            //                     fontWeight:
-                                            //                         semiBold),
-                                            //             desc:
-                                            //                 "Mau hapus pesananan ini?",
-                                            //           ).show();
-                                            //         },
-                                            //       )
-                                            //     : null;
+                                            setState(() {
+                                              _counter--;
+                                            });
+                                            target['kuantiti'] <= 1
+                                                ? Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 100),
+                                                    () {
+                                                      AwesomeDialog(
+                                                        dismissOnTouchOutside:
+                                                            false,
+                                                        dismissOnBackKeyPress:
+                                                            false,
+                                                        context: context,
+                                                        animType:
+                                                            AnimType.scale,
+                                                        headerAnimationLoop:
+                                                            false,
+                                                        dialogType:
+                                                            DialogType.error,
+                                                        descTextStyle: tBody,
+                                                        btnCancel:
+                                                            OutlinedButton(
+                                                          style: ElevatedButton
+                                                              .styleFrom(
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              side: const BorderSide(
+                                                                  color: Colors
+                                                                      .green),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8),
+                                                            ),
+                                                          ),
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                          child: Text(
+                                                            'Batal',
+                                                            style:
+                                                                tBody.copyWith(
+                                                                    color: Colors
+                                                                        .green),
+                                                          ),
+                                                        ),
+                                                        btnOk: ElevatedButton(
+                                                          style: ElevatedButton
+                                                              .styleFrom(
+                                                                  shape:
+                                                                      RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius
+                                                                            .circular(8),
+                                                                  ),
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .red),
+                                                          onPressed: () {
+                                                            controller
+                                                                .listKeranjang
+                                                                .remove(data);
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                          child: Text(
+                                                            'Hapus',
+                                                            style:
+                                                                tBody.copyWith(
+                                                                    color: Colors
+                                                                        .white),
+                                                          ),
+                                                        ),
+                                                        buttonsTextStyle:
+                                                            tBody.copyWith(
+                                                                color: Colors
+                                                                    .white),
+                                                        titleTextStyle:
+                                                            tBody.copyWith(
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    semiBold),
+                                                        desc:
+                                                            "Mau hapus pesananan ini?",
+                                                      ).show();
+                                                    },
+                                                  )
+                                                : null;
                                           },
                                           child: Container(
                                             width: 25,
@@ -286,36 +285,32 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                           ),
                                         ),
                                         Text(
-                                          data.kuantiti.toString(),
+                                          data['kuantiti'].toString(),
                                           style: tBody.copyWith(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         GestureDetector(
                                           onTap: () {
-                                            // var target = controller
-                                            //     .listKeranjang
-                                            //     .firstWhere((element) =>
-                                            //         element['id'] ==
-                                            //         data['id']);
-                                            // if (target != null) {
-                                            //   target["kuantiti"] =
-                                            //       target['kuantiti'] + 1;
+                                            var target = controller
+                                                .listKeranjang
+                                                .firstWhere((element) =>
+                                                    element['produk_id'] ==
+                                                    data['produk_id']);
+                                            if (target != null) {
+                                              target["kuantiti"] =
+                                                  target['kuantiti'] + 1;
+                                            }
 
-                                            //   // print(controller.listKeranjang);
-                                            // }
-                                            // // print(controller.listKeranjang[index].toString());
-                                            // for (var item
-                                            //     in controller.listKeranjang) {
-                                            //   //getting the key direectly from the name of the key
-                                            //   total += item["harga"] *
-                                            //       item['kuantiti'];
-                                            // }
-
-                                            // print(total);
-                                            // setState(() {
-                                            //   _counter++;
-                                            // });
+                                            for (var item
+                                                in controller.listKeranjang) {
+                                              //getting the key direectly from the name of the key
+                                              total += item["harga"] *
+                                                  item['kuantiti'];
+                                            }
+                                            setState(() {
+                                              _counter++;
+                                            });
                                           },
                                           child: Container(
                                             width: 25,
@@ -350,243 +345,246 @@ class _KeranjangPageState extends State<KeranjangPage> {
               : Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SubmitButton(
-                      ontap: () {
-                        Future.delayed(
-                          const Duration(milliseconds: 100),
-                          () {
-                            showSlidingBottomSheet(
-                              context,
-                              builder: (context) => SlidingSheetDialog(
-                                cornerRadius: 15,
-                                avoidStatusBar: true,
-                                snapSpec: const SnapSpec(
-                                  snappings: [0.7, 0.95],
-                                ),
-                                builder: printerChoose,
-                                headerBuilder: (context, state) =>
-                                    StatefulBuilder(
-                                  builder: (BuildContext context, setState) {
-                                    return Material(
-                                      color: Colors.white,
-                                      child: SizedBox(
-                                        height: 80,
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 15),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Center(
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.grey
-                                                        .withOpacity(0.5),
-                                                    borderRadius:
-                                                        const BorderRadius.all(
-                                                      Radius.circular(10),
-                                                    ),
-                                                  ),
-                                                  margin: const EdgeInsets.only(
-                                                      top: 8),
-                                                  width: 50,
-                                                  height: 5,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Text(
-                                                "Pilih Printer",
-                                                style: titleStyle,
-                                              ),
-                                              Divider()
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                                footerBuilder: (context, state) =>
-                                    StatefulBuilder(
-                                  builder: (BuildContext context, setState) {
-                                    return Material(
-                                      color: Colors.white,
-                                      child: Container(
-                                        margin: EdgeInsets.all(10),
-                                        child: SubmitButton(
-                                            ontap: () {
-                                              Navigator.pop(context);
-                                              Future.delayed(
-                                                const Duration(
-                                                    milliseconds: 100),
-                                                () {
-                                                  showSlidingBottomSheet(
-                                                    context,
-                                                    builder: (context) =>
-                                                        SlidingSheetDialog(
-                                                      cornerRadius: 15,
-                                                      avoidStatusBar: true,
-                                                      snapSpec: const SnapSpec(
-                                                        snappings: [0.7, 0.95],
-                                                      ),
-                                                      builder: printerChoose,
-                                                      headerBuilder:
-                                                          (context, state) =>
-                                                              StatefulBuilder(
-                                                        builder: (BuildContext
-                                                                context,
-                                                            setState) {
-                                                          return Material(
-                                                            color: Colors.white,
-                                                            child: SizedBox(
-                                                              height: 80,
-                                                              child: Padding(
-                                                                padding: const EdgeInsets
-                                                                    .symmetric(
-                                                                    horizontal:
-                                                                        15),
-                                                                child: Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Center(
-                                                                      child:
-                                                                          Container(
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color: Colors
-                                                                              .grey
-                                                                              .withOpacity(0.5),
-                                                                          borderRadius:
-                                                                              const BorderRadius.all(
-                                                                            Radius.circular(10),
-                                                                          ),
-                                                                        ),
-                                                                        margin: const EdgeInsets
-                                                                            .only(
-                                                                            top:
-                                                                                8),
-                                                                        width:
-                                                                            50,
-                                                                        height:
-                                                                            5,
-                                                                      ),
-                                                                    ),
-                                                                    SizedBox(
-                                                                      height:
-                                                                          10,
-                                                                    ),
-                                                                    Text(
-                                                                      "Pembayaran",
-                                                                      style:
-                                                                          titleStyle,
-                                                                    ),
-                                                                    Divider()
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ),
-                                                      footerBuilder:
-                                                          (context, state) =>
-                                                              StatefulBuilder(
-                                                        builder: (BuildContext
-                                                                context,
-                                                            setState) {
-                                                          return Material(
-                                                            color: Colors.white,
-                                                            child: Container(
-                                                              margin: EdgeInsets
-                                                                  .all(10),
-                                                              child:
-                                                                  BlocProvider(
-                                                                create: (context) =>
-                                                                    cubitKeranjang,
-                                                                child: BlocConsumer<
-                                                                    KeranjangCubit,
-                                                                    KeranjangState>(
-                                                                  listener:
-                                                                      (context,
-                                                                          state) {
-                                                                    state
-                                                                        .maybeMap(
-                                                                      orElse:
-                                                                          () {},
-                                                                      getKeranjangSuccess:
-                                                                          (value) async {
-                                                                        if ((await printer
-                                                                            .isConnected)!) {
-                                                                          printer
-                                                                              .printNewLine();
-
-                                                                          printer.print3Column(
-                                                                              value.keranjangResponseModel.id.toString(),
-                                                                              value.keranjangResponseModel.namaKasir,
-                                                                              value.keranjangResponseModel.id.toString(),
-                                                                              1);
-
-                                                                          printer
-                                                                              .printNewLine();
-                                                                        }
-                                                                      },
-                                                                      dioError:
-                                                                          (value) =>
-                                                                              print(value),
-                                                                    );
-                                                                  },
-                                                                  builder:
-                                                                      (context,
-                                                                          state) {
-                                                                    return state
-                                                                        .maybeMap(
-                                                                      orElse: () =>
-                                                                          SubmitButton(
-                                                                        ontap:
-                                                                            () async {
-                                                                          bool?
-                                                                              stringfuture =
-                                                                              await printer.isConnected;
-
-                                                                          // cubitKeranjang.keranjang(
-                                                                          //     data: controller.listKeranjang);
-                                                                          print(
-                                                                              controller.listKeranjang);
-                                                                        },
-                                                                        title:
-                                                                            "Bayar",
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                            },
-                                            title: "Pilih Printer"),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            );
-                          },
-                        );
+                      ontap: () async {
+                        bool? stringfuture = await printer.isConnected;
+                        stringfuture == false
+                            ? selectPrinter(context)
+                            : payment(context);
                       },
-                      title: "Cetak Pembelian"),
+                      title: "Bayar"),
                 ),
         ),
       ),
+    );
+  }
+
+  Future<void> selectPrinter(BuildContext context) {
+    return Future.delayed(
+      const Duration(milliseconds: 100),
+      () {
+        showSlidingBottomSheet(
+          context,
+          builder: (context) => SlidingSheetDialog(
+            cornerRadius: 15,
+            avoidStatusBar: true,
+            snapSpec: const SnapSpec(
+              snappings: [0.7, 0.95],
+            ),
+            builder: printerChoose,
+            headerBuilder: (context, state) => StatefulBuilder(
+              builder: (BuildContext context, setState) {
+                return Material(
+                  color: Colors.white,
+                  child: SizedBox(
+                    height: 80,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.5),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                              ),
+                              margin: const EdgeInsets.only(top: 8),
+                              width: 50,
+                              height: 5,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Pilih Printer",
+                            style: titleStyle,
+                          ),
+                          Divider()
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+            footerBuilder: (context, state) => StatefulBuilder(
+              builder: (BuildContext context, setState) {
+                return Material(
+                  color: Colors.white,
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: SubmitButton(
+                        ontap: () {
+                          Navigator.pop(context);
+                          payment(context);
+                        },
+                        title: "Pilih Printer"),
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> payment(BuildContext context) {
+    return Future.delayed(
+      const Duration(milliseconds: 100),
+      () {
+        showSlidingBottomSheet(
+          context,
+          builder: (context) => SlidingSheetDialog(
+            cornerRadius: 15,
+            avoidStatusBar: true,
+            snapSpec: const SnapSpec(
+              snappings: [0.7, 0.95],
+            ),
+            builder: (context, state) => Material(
+              color: Colors.white,
+              child: StatefulBuilder(
+                builder: (BuildContext context, StateSetter setState) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: TextFormField(
+                      style: tBody.copyWith(
+                          fontSize: 16, fontWeight: FontWeight.bold),
+                      // controller: password,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: BorderSide(
+                            color: secondaryColor,
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100)),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 15),
+                        errorStyle: tBody.copyWith(fontSize: 12, height: 0.8),
+                        hintText: '******',
+                        hintStyle: tBody.copyWith(
+                            color: Colors.grey.withOpacity(0.6),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                        isDense: true,
+                      ),
+                      validator: (value) {
+                        if (value == "") {
+                          return "Password harus di isi";
+                        }
+                        return null;
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
+            headerBuilder: (context, state) => StatefulBuilder(
+              builder: (BuildContext context, setState) {
+                return Material(
+                  color: Colors.white,
+                  child: SizedBox(
+                    height: 80,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.5),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                              ),
+                              margin: const EdgeInsets.only(top: 8),
+                              width: 50,
+                              height: 5,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Pembayaran",
+                            style: titleStyle,
+                          ),
+                          Divider()
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+            footerBuilder: (context, state) => StatefulBuilder(
+              builder: (BuildContext context, setState) {
+                return Material(
+                  color: Colors.white,
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: BlocProvider(
+                      create: (context) => cubitKeranjang,
+                      child: BlocConsumer<KeranjangCubit, KeranjangState>(
+                        listener: (context, state) {
+                          state.maybeMap(
+                            orElse: () {},
+                            getKeranjangSuccess: (value) async {
+                              if ((await printer.isConnected)!) {
+                                printer.printNewLine();
+                                var _data =
+                                    value.keranjangResponseModel.invoice;
+                                printer.print3Column(
+                                    "NAMA BARANG", 'SATUAN', "KUANTITI", 1);
+                                for (var element in _data) {
+                                  printer.print3Column(element.namaBarang,
+                                      element.satuan, element.kuantiti, 1);
+                                }
+
+                                printer.print3Column(
+                                    value.keranjangResponseModel.id.toString(),
+                                    value.keranjangResponseModel.namaKasir,
+                                    value.keranjangResponseModel.id.toString(),
+                                    1);
+
+                                printer.printNewLine();
+                              }
+                            },
+                            dioError: (value) => print(value),
+                          );
+                        },
+                        builder: (context, state) {
+                          return state.maybeMap(
+                            orElse: () => SubmitButton(
+                              ontap: () async {
+                                // print(
+                                //     stringfuture);
+
+                                cubitKeranjang.keranjang(
+                                    data: jsonEncode(controller.listKeranjang));
+                                Navigator.pop(context);
+                              },
+                              title: "Bayar",
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -648,152 +646,13 @@ class _KeranjangPageState extends State<KeranjangPage> {
                       });
                     },
                   ),
-                  // ElevatedButton(
-                  //   onPressed: () {
-                  //     printer.connect(selectedDevice!);
-                  //   },
-                  //   child: Text("Connect"),
-                  // ),
-                  // ElevatedButton(
-                  //   onPressed: () {
-                  //     printer.connect(selectedDevice!);
-                  //   },
-                  //   child: Text("Disconnect"),
-                  // ),
-                  // Row(
-                  //   children: [
-                  //     Flexible(
-                  //       fit: FlexFit.tight,
-                  //       flex: 2,
-                  //       child: Text(
-                  //         'Barang',
-                  //         style: titleStyle.copyWith(fontSize: 14),
-                  //       ),
-                  //     ),
-                  //     Flexible(
-                  //       flex: 2,
-                  //       fit: FlexFit.tight,
-                  //       child: Text(
-                  //         'Satuan',
-                  //         style: titleStyle.copyWith(fontSize: 14),
-                  //       ),
-                  //     ),
-                  //     Flexible(
-                  //       fit: FlexFit.tight,
-                  //       child: SizedBox(
-                  //         child: Text(
-                  //           'kuantiti',
-                  //           style: titleStyle.copyWith(fontSize: 14),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     Flexible(
-                  //       fit: FlexFit.tight,
-                  //       flex: 2,
-                  //       child: SizedBox(
-                  //         child: Text(
-                  //           'Harga',
-                  //           style: titleStyle.copyWith(fontSize: 14),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     Flexible(
-                  //       fit: FlexFit.tight,
-                  //       flex: 2,
-                  //       child: SizedBox(
-                  //         child: Text(
-                  //           'Total',
-                  //           style: titleStyle.copyWith(fontSize: 14),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-                  // Obx(
-                  //   () => ListView.builder(
-                  //     shrinkWrap: true,
-                  //     padding: EdgeInsets.zero,
-                  //     itemBuilder: (context, index) {
-                  //       var data = controller.listKeranjang[index];
-                  //       return Row(
-                  //         children: [
-                  //           Flexible(
-                  //             fit: FlexFit.tight,
-                  //             flex: 2,
-                  //             child: Text(
-                  //               'Sapu',
-                  //               style: tBody,
-                  //             ),
-                  //           ),
-                  //           Flexible(
-                  //             flex: 2,
-                  //             fit: FlexFit.tight,
-                  //             child: Text(
-                  //               data['satuan'],
-                  //               style: tBody,
-                  //             ),
-                  //           ),
-                  //           Flexible(
-                  //             fit: FlexFit.tight,
-                  //             child: SizedBox(
-                  //               child: Text(
-                  //                 data['kuantiti'].toString(),
-                  //                 style: tBody,
-                  //               ),
-                  //             ),
-                  //           ),
-                  //           Flexible(
-                  //             flex: 2,
-                  //             fit: FlexFit.tight,
-                  //             child: SizedBox(
-                  //               child: Text(
-                  //                 CurrencyFormat.convertToIdr(data['harga'], 0),
-                  //                 style: tBody,
-                  //               ),
-                  //             ),
-                  //           ),
-                  //           Flexible(
-                  //             flex: 2,
-                  //             fit: FlexFit.tight,
-                  //             child: Text(
-                  //               CurrencyFormat.convertToIdr(
-                  //                   data['kuantiti'] * data['harga'], 0),
-                  //               style: tBody,
-                  //             ),
-                  //           ),
-                  //         ],
-                  //       );
-                  //     },
-                  //     itemCount: controller.listKeranjang.length,
-                  //   ),
-                  // ),
-                  // const Divider(),
-                  // Text(
-                  //   'Total : 30.000.000',
-                  //   style: titleStyle.copyWith(
-                  //     fontSize: 16,
-                  //     color: primaryColor,
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-                  // TextField(
-                  //   inputFormatters: [
-                  //     CurrencyTextInputFormatter(
-                  //         decimalDigits: 0, locale: 'id', symbol: 'Rp')
-                  //   ],
-                  //   keyboardType: TextInputType.number,
-                  //   controller: nominal,
-                  //   decoration: InputDecoration(
-                  //     border: OutlineInputBorder(
-                  //       borderRadius: BorderRadius.circular(8),
-                  //     ),
-                  //     labelText: 'Nominal Bayar',
-                  //     labelStyle: tBody,
-                  //   ),
-                  //   onChanged: (text) {},
-                  // ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    '* Jika di menu tidak ada print anda silahkan sambungkan dengan terlebih dahalu',
+                    style: tBody.copyWith(color: Colors.red, fontSize: 12),
+                  )
                 ],
               ),
             );

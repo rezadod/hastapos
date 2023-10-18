@@ -19,7 +19,7 @@ class Controller extends GetxController {
   final input_quantity = 0.obs;
   var selected_id = 0.obs;
   var selected_harga = 0.obs;
-  var listKeranjang = <KeranjangRequestModel>[].obs;
+  var listKeranjang = [].obs;
   var jenisSatuan = "".obs;
   var namaBarang = "".obs;
   var selectedJeninsPembelianId = 0.obs;

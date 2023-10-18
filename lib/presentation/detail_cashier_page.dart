@@ -298,25 +298,16 @@ class _DetailCashierState extends State<DetailCashier> {
                             Navigator.pop(context);
 
 // {
-//                               "id_produk": controller.selected_id.value,
-//                               "kuantiti": controller.input_quantity.value,
-//                               "jenis_pembelian":
-//                                   controller.selectedJeninsPembelianId.value,
-//                               'nama_produk': controller.namaBarang.value,
-//                               "satuan": controller.jenisSatuan.value,
-//                               "harga": controller.selected_harga.value
-//                             }
-                            controller.listKeranjang.add(
-                              KeranjangRequestModel(
-                                produkId: controller.selected_id.value,
-                                kuantiti: controller.input_quantity.value,
-                                jenisPembelian:
-                                    controller.selectedJeninsPembelianId.value,
-                                harga: controller.selected_harga.value,
-                                namaProduk: controller.namaBarang.value,
-                                satuan: controller.jenisSatuan.value,
-                              ),
-                            );
+
+                            controller.listKeranjang.add({
+                              "produk_id": controller.selected_id.value,
+                              "kuantiti": controller.input_quantity.value,
+                              "jenis_pembelian":
+                                  controller.selectedJeninsPembelianId.value,
+                              'nama_produk': controller.namaBarang.value,
+                              "satuan": controller.jenisSatuan.value,
+                              "harga": controller.selected_harga.value
+                            });
                           },
                     child: Text(
                       controller.input_quantity.value == 0
