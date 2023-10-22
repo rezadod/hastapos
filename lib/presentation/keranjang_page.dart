@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:hastapos/application/keranjang/keranjang_cubit.dart';
-import 'package:hastapos/domain/keranjang/request/keranjang_request_model.dart';
 import 'package:hastapos/injectable.dart';
 import 'package:hastapos/presentation/components/sumbit_button.dart';
 import 'package:hastapos/utils/price_format.dart';
@@ -55,7 +54,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
     return Obx(
       () => LoadingOverlay(
         isLoading: isLoading,
-        progressIndicator: SpinKitRing(
+        progressIndicator: const SpinKitRing(
           color: primaryColor,
           size: 70,
           lineWidth: 5,
@@ -345,6 +344,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
               : Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SubmitButton(
+                      color: primaryColor,
                       ontap: () async {
                         bool? stringfuture = await printer.isConnected;
                         stringfuture == false
@@ -395,14 +395,14 @@ class _KeranjangPageState extends State<KeranjangPage> {
                               height: 5,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
                             "Pilih Printer",
                             style: titleStyle,
                           ),
-                          Divider()
+                          const Divider()
                         ],
                       ),
                     ),
@@ -415,8 +415,9 @@ class _KeranjangPageState extends State<KeranjangPage> {
                 return Material(
                   color: Colors.white,
                   child: Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: SubmitButton(
+                        color: primaryColor,
                         ontap: () {
                           Navigator.pop(context);
                           payment(context);
@@ -457,7 +458,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                       decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: secondaryColor,
                           ),
                         ),
@@ -510,14 +511,14 @@ class _KeranjangPageState extends State<KeranjangPage> {
                               height: 5,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
                             "Pembayaran",
                             style: titleStyle,
                           ),
-                          Divider()
+                          const Divider()
                         ],
                       ),
                     ),
@@ -530,7 +531,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                 return Material(
                   color: Colors.white,
                   child: Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: BlocProvider(
                       create: (context) => cubitKeranjang,
                       child: BlocConsumer<KeranjangCubit, KeranjangState>(
@@ -564,6 +565,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                         builder: (context, state) {
                           return state.maybeMap(
                             orElse: () => SubmitButton(
+                              color: primaryColor,
                               ontap: () async {
                                 // print(
                                 //     stringfuture);
@@ -598,7 +600,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   DropdownButtonFormField<BluetoothDevice>(
-                    hint: Text("Pilih Printer"),
+                    hint: const Text("Pilih Printer"),
                     isExpanded: true,
                     icon: const HeroIcon(
                       HeroIcons.chevronDown,
@@ -646,7 +648,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(

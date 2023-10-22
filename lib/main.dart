@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:hastapos/presentation/auth/login_page.dart';
 import 'package:hastapos/presentation/intro/splash_screen.dart';
 import 'package:hastapos/presentation/menu/menu_page.dart';
+import 'package:hastapos/presentation/report/report_page.dart';
 
 import 'injectable.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: ReportPage(),
     );
   }
 }

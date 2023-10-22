@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:hastapos/application/stock/stock_cubit.dart';
-import 'package:hastapos/domain/keranjang/request/keranjang_request_model.dart';
 import 'package:heroicons/heroicons.dart';
 import '../injectable.dart';
 import '../utils/price_format.dart';
@@ -292,13 +291,10 @@ class _DetailCashierState extends State<DetailCashier> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: primaryColor,
                         shape: const StadiumBorder()),
-                    onPressed: controller.input_quantity.value == 0
+                    onPressed: controller.input_quantity.value == 0 ||
+                            controller.selected_id.value == 0
                         ? null
                         : () {
-                            Navigator.pop(context);
-
-// {
-
                             controller.listKeranjang.add({
                               "produk_id": controller.selected_id.value,
                               "kuantiti": controller.input_quantity.value,
@@ -308,6 +304,10 @@ class _DetailCashierState extends State<DetailCashier> {
                               "satuan": controller.jenisSatuan.value,
                               "harga": controller.selected_harga.value
                             });
+                            Navigator.pop(context);
+
+                            controller.selected_id.value = 0;
+                            controller.input_quantity.value = 0;
                           },
                     child: Text(
                       controller.input_quantity.value == 0

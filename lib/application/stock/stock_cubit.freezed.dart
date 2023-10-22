@@ -24,6 +24,10 @@ mixin _$StockState {
     required TResult Function(StockResponseModel stockResponseModel) dataStock,
     required TResult Function(DetailStockResponseModel detailResponseModel)
         datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +38,9 @@ mixin _$StockState {
     TResult? Function(StockResponseModel stockResponseModel)? dataStock,
     TResult? Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +51,9 @@ mixin _$StockState {
     TResult Function(StockResponseModel stockResponseModel)? dataStock,
     TResult Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +64,9 @@ mixin _$StockState {
     required TResult Function(_StockLoading value) stockLoading,
     required TResult Function(_DataStock value) dataStock,
     required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +76,9 @@ mixin _$StockState {
     TResult? Function(_StockLoading value)? stockLoading,
     TResult? Function(_DataStock value)? dataStock,
     TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +88,9 @@ mixin _$StockState {
     TResult Function(_StockLoading value)? stockLoading,
     TResult Function(_DataStock value)? dataStock,
     TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,6 +158,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function(StockResponseModel stockResponseModel) dataStock,
     required TResult Function(DetailStockResponseModel detailResponseModel)
         datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
   }) {
     return initial();
   }
@@ -152,6 +175,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(StockResponseModel stockResponseModel)? dataStock,
     TResult? Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
   }) {
     return initial?.call();
   }
@@ -165,6 +191,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(StockResponseModel stockResponseModel)? dataStock,
     TResult Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -181,6 +210,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_StockLoading value) stockLoading,
     required TResult Function(_DataStock value) dataStock,
     required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
   }) {
     return initial(this);
   }
@@ -193,6 +225,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_StockLoading value)? stockLoading,
     TResult? Function(_DataStock value)? dataStock,
     TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
   }) {
     return initial?.call(this);
   }
@@ -205,6 +240,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(_StockLoading value)? stockLoading,
     TResult Function(_DataStock value)? dataStock,
     TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -299,6 +337,10 @@ class _$DioErrorImpl implements _DioError {
     required TResult Function(StockResponseModel stockResponseModel) dataStock,
     required TResult Function(DetailStockResponseModel detailResponseModel)
         datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
   }) {
     return dioError(networkExceptions);
   }
@@ -312,6 +354,9 @@ class _$DioErrorImpl implements _DioError {
     TResult? Function(StockResponseModel stockResponseModel)? dataStock,
     TResult? Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
   }) {
     return dioError?.call(networkExceptions);
   }
@@ -325,6 +370,9 @@ class _$DioErrorImpl implements _DioError {
     TResult Function(StockResponseModel stockResponseModel)? dataStock,
     TResult Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
     required TResult orElse(),
   }) {
     if (dioError != null) {
@@ -341,6 +389,9 @@ class _$DioErrorImpl implements _DioError {
     required TResult Function(_StockLoading value) stockLoading,
     required TResult Function(_DataStock value) dataStock,
     required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
   }) {
     return dioError(this);
   }
@@ -353,6 +404,9 @@ class _$DioErrorImpl implements _DioError {
     TResult? Function(_StockLoading value)? stockLoading,
     TResult? Function(_DataStock value)? dataStock,
     TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
   }) {
     return dioError?.call(this);
   }
@@ -365,6 +419,9 @@ class _$DioErrorImpl implements _DioError {
     TResult Function(_StockLoading value)? stockLoading,
     TResult Function(_DataStock value)? dataStock,
     TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
     required TResult orElse(),
   }) {
     if (dioError != null) {
@@ -428,6 +485,10 @@ class _$StockLoadingImpl implements _StockLoading {
     required TResult Function(StockResponseModel stockResponseModel) dataStock,
     required TResult Function(DetailStockResponseModel detailResponseModel)
         datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
   }) {
     return stockLoading();
   }
@@ -441,6 +502,9 @@ class _$StockLoadingImpl implements _StockLoading {
     TResult? Function(StockResponseModel stockResponseModel)? dataStock,
     TResult? Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
   }) {
     return stockLoading?.call();
   }
@@ -454,6 +518,9 @@ class _$StockLoadingImpl implements _StockLoading {
     TResult Function(StockResponseModel stockResponseModel)? dataStock,
     TResult Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
     required TResult orElse(),
   }) {
     if (stockLoading != null) {
@@ -470,6 +537,9 @@ class _$StockLoadingImpl implements _StockLoading {
     required TResult Function(_StockLoading value) stockLoading,
     required TResult Function(_DataStock value) dataStock,
     required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
   }) {
     return stockLoading(this);
   }
@@ -482,6 +552,9 @@ class _$StockLoadingImpl implements _StockLoading {
     TResult? Function(_StockLoading value)? stockLoading,
     TResult? Function(_DataStock value)? dataStock,
     TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
   }) {
     return stockLoading?.call(this);
   }
@@ -494,6 +567,9 @@ class _$StockLoadingImpl implements _StockLoading {
     TResult Function(_StockLoading value)? stockLoading,
     TResult Function(_DataStock value)? dataStock,
     TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
     required TResult orElse(),
   }) {
     if (stockLoading != null) {
@@ -589,6 +665,10 @@ class _$DataStockImpl implements _DataStock {
     required TResult Function(StockResponseModel stockResponseModel) dataStock,
     required TResult Function(DetailStockResponseModel detailResponseModel)
         datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
   }) {
     return dataStock(stockResponseModel);
   }
@@ -602,6 +682,9 @@ class _$DataStockImpl implements _DataStock {
     TResult? Function(StockResponseModel stockResponseModel)? dataStock,
     TResult? Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
   }) {
     return dataStock?.call(stockResponseModel);
   }
@@ -615,6 +698,9 @@ class _$DataStockImpl implements _DataStock {
     TResult Function(StockResponseModel stockResponseModel)? dataStock,
     TResult Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
     required TResult orElse(),
   }) {
     if (dataStock != null) {
@@ -631,6 +717,9 @@ class _$DataStockImpl implements _DataStock {
     required TResult Function(_StockLoading value) stockLoading,
     required TResult Function(_DataStock value) dataStock,
     required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
   }) {
     return dataStock(this);
   }
@@ -643,6 +732,9 @@ class _$DataStockImpl implements _DataStock {
     TResult? Function(_StockLoading value)? stockLoading,
     TResult? Function(_DataStock value)? dataStock,
     TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
   }) {
     return dataStock?.call(this);
   }
@@ -655,6 +747,9 @@ class _$DataStockImpl implements _DataStock {
     TResult Function(_StockLoading value)? stockLoading,
     TResult Function(_DataStock value)? dataStock,
     TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
     required TResult orElse(),
   }) {
     if (dataStock != null) {
@@ -757,6 +852,10 @@ class _$DatadetailStockImpl implements _DatadetailStock {
     required TResult Function(StockResponseModel stockResponseModel) dataStock,
     required TResult Function(DetailStockResponseModel detailResponseModel)
         datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
   }) {
     return datadetailStock(detailResponseModel);
   }
@@ -770,6 +869,9 @@ class _$DatadetailStockImpl implements _DatadetailStock {
     TResult? Function(StockResponseModel stockResponseModel)? dataStock,
     TResult? Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
   }) {
     return datadetailStock?.call(detailResponseModel);
   }
@@ -783,6 +885,9 @@ class _$DatadetailStockImpl implements _DatadetailStock {
     TResult Function(StockResponseModel stockResponseModel)? dataStock,
     TResult Function(DetailStockResponseModel detailResponseModel)?
         datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
     required TResult orElse(),
   }) {
     if (datadetailStock != null) {
@@ -799,6 +904,9 @@ class _$DatadetailStockImpl implements _DatadetailStock {
     required TResult Function(_StockLoading value) stockLoading,
     required TResult Function(_DataStock value) dataStock,
     required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
   }) {
     return datadetailStock(this);
   }
@@ -811,6 +919,9 @@ class _$DatadetailStockImpl implements _DatadetailStock {
     TResult? Function(_StockLoading value)? stockLoading,
     TResult? Function(_DataStock value)? dataStock,
     TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
   }) {
     return datadetailStock?.call(this);
   }
@@ -823,6 +934,9 @@ class _$DatadetailStockImpl implements _DatadetailStock {
     TResult Function(_StockLoading value)? stockLoading,
     TResult Function(_DataStock value)? dataStock,
     TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
     required TResult orElse(),
   }) {
     if (datadetailStock != null) {
@@ -840,5 +954,561 @@ abstract class _DatadetailStock implements StockState {
   DetailStockResponseModel get detailResponseModel;
   @JsonKey(ignore: true)
   _$$DatadetailStockImplCopyWith<_$DatadetailStockImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SatuanImplCopyWith<$Res> {
+  factory _$$SatuanImplCopyWith(
+          _$SatuanImpl value, $Res Function(_$SatuanImpl) then) =
+      __$$SatuanImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DataSatuanResponseModel dataSatuanResponseModel});
+
+  $DataSatuanResponseModelCopyWith<$Res> get dataSatuanResponseModel;
+}
+
+/// @nodoc
+class __$$SatuanImplCopyWithImpl<$Res>
+    extends _$StockStateCopyWithImpl<$Res, _$SatuanImpl>
+    implements _$$SatuanImplCopyWith<$Res> {
+  __$$SatuanImplCopyWithImpl(
+      _$SatuanImpl _value, $Res Function(_$SatuanImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dataSatuanResponseModel = null,
+  }) {
+    return _then(_$SatuanImpl(
+      null == dataSatuanResponseModel
+          ? _value.dataSatuanResponseModel
+          : dataSatuanResponseModel // ignore: cast_nullable_to_non_nullable
+              as DataSatuanResponseModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DataSatuanResponseModelCopyWith<$Res> get dataSatuanResponseModel {
+    return $DataSatuanResponseModelCopyWith<$Res>(
+        _value.dataSatuanResponseModel, (value) {
+      return _then(_value.copyWith(dataSatuanResponseModel: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SatuanImpl implements _Satuan {
+  const _$SatuanImpl(this.dataSatuanResponseModel);
+
+  @override
+  final DataSatuanResponseModel dataSatuanResponseModel;
+
+  @override
+  String toString() {
+    return 'StockState.satuan(dataSatuanResponseModel: $dataSatuanResponseModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SatuanImpl &&
+            (identical(
+                    other.dataSatuanResponseModel, dataSatuanResponseModel) ||
+                other.dataSatuanResponseModel == dataSatuanResponseModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dataSatuanResponseModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SatuanImplCopyWith<_$SatuanImpl> get copyWith =>
+      __$$SatuanImplCopyWithImpl<_$SatuanImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(NetworkExceptions networkExceptions) dioError,
+    required TResult Function() stockLoading,
+    required TResult Function(StockResponseModel stockResponseModel) dataStock,
+    required TResult Function(DetailStockResponseModel detailResponseModel)
+        datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
+  }) {
+    return satuan(dataSatuanResponseModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(NetworkExceptions networkExceptions)? dioError,
+    TResult? Function()? stockLoading,
+    TResult? Function(StockResponseModel stockResponseModel)? dataStock,
+    TResult? Function(DetailStockResponseModel detailResponseModel)?
+        datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
+  }) {
+    return satuan?.call(dataSatuanResponseModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(NetworkExceptions networkExceptions)? dioError,
+    TResult Function()? stockLoading,
+    TResult Function(StockResponseModel stockResponseModel)? dataStock,
+    TResult Function(DetailStockResponseModel detailResponseModel)?
+        datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (satuan != null) {
+      return satuan(dataSatuanResponseModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DioError value) dioError,
+    required TResult Function(_StockLoading value) stockLoading,
+    required TResult Function(_DataStock value) dataStock,
+    required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
+  }) {
+    return satuan(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DioError value)? dioError,
+    TResult? Function(_StockLoading value)? stockLoading,
+    TResult? Function(_DataStock value)? dataStock,
+    TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
+  }) {
+    return satuan?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DioError value)? dioError,
+    TResult Function(_StockLoading value)? stockLoading,
+    TResult Function(_DataStock value)? dataStock,
+    TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (satuan != null) {
+      return satuan(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Satuan implements StockState {
+  const factory _Satuan(final DataSatuanResponseModel dataSatuanResponseModel) =
+      _$SatuanImpl;
+
+  DataSatuanResponseModel get dataSatuanResponseModel;
+  @JsonKey(ignore: true)
+  _$$SatuanImplCopyWith<_$SatuanImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MessageSuccessImplCopyWith<$Res> {
+  factory _$$MessageSuccessImplCopyWith(_$MessageSuccessImpl value,
+          $Res Function(_$MessageSuccessImpl) then) =
+      __$$MessageSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MessageResponseModel message});
+
+  $MessageResponseModelCopyWith<$Res> get message;
+}
+
+/// @nodoc
+class __$$MessageSuccessImplCopyWithImpl<$Res>
+    extends _$StockStateCopyWithImpl<$Res, _$MessageSuccessImpl>
+    implements _$$MessageSuccessImplCopyWith<$Res> {
+  __$$MessageSuccessImplCopyWithImpl(
+      _$MessageSuccessImpl _value, $Res Function(_$MessageSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$MessageSuccessImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as MessageResponseModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MessageResponseModelCopyWith<$Res> get message {
+    return $MessageResponseModelCopyWith<$Res>(_value.message, (value) {
+      return _then(_value.copyWith(message: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$MessageSuccessImpl implements _MessageSuccess {
+  const _$MessageSuccessImpl(this.message);
+
+  @override
+  final MessageResponseModel message;
+
+  @override
+  String toString() {
+    return 'StockState.messageSuccess(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MessageSuccessImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MessageSuccessImplCopyWith<_$MessageSuccessImpl> get copyWith =>
+      __$$MessageSuccessImplCopyWithImpl<_$MessageSuccessImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(NetworkExceptions networkExceptions) dioError,
+    required TResult Function() stockLoading,
+    required TResult Function(StockResponseModel stockResponseModel) dataStock,
+    required TResult Function(DetailStockResponseModel detailResponseModel)
+        datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
+  }) {
+    return messageSuccess(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(NetworkExceptions networkExceptions)? dioError,
+    TResult? Function()? stockLoading,
+    TResult? Function(StockResponseModel stockResponseModel)? dataStock,
+    TResult? Function(DetailStockResponseModel detailResponseModel)?
+        datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
+  }) {
+    return messageSuccess?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(NetworkExceptions networkExceptions)? dioError,
+    TResult Function()? stockLoading,
+    TResult Function(StockResponseModel stockResponseModel)? dataStock,
+    TResult Function(DetailStockResponseModel detailResponseModel)?
+        datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageSuccess != null) {
+      return messageSuccess(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DioError value) dioError,
+    required TResult Function(_StockLoading value) stockLoading,
+    required TResult Function(_DataStock value) dataStock,
+    required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
+  }) {
+    return messageSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DioError value)? dioError,
+    TResult? Function(_StockLoading value)? stockLoading,
+    TResult? Function(_DataStock value)? dataStock,
+    TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
+  }) {
+    return messageSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DioError value)? dioError,
+    TResult Function(_StockLoading value)? stockLoading,
+    TResult Function(_DataStock value)? dataStock,
+    TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageSuccess != null) {
+      return messageSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MessageSuccess implements StockState {
+  const factory _MessageSuccess(final MessageResponseModel message) =
+      _$MessageSuccessImpl;
+
+  MessageResponseModel get message;
+  @JsonKey(ignore: true)
+  _$$MessageSuccessImplCopyWith<_$MessageSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MessageFailedImplCopyWith<$Res> {
+  factory _$$MessageFailedImplCopyWith(
+          _$MessageFailedImpl value, $Res Function(_$MessageFailedImpl) then) =
+      __$$MessageFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MessageResponseModel message});
+
+  $MessageResponseModelCopyWith<$Res> get message;
+}
+
+/// @nodoc
+class __$$MessageFailedImplCopyWithImpl<$Res>
+    extends _$StockStateCopyWithImpl<$Res, _$MessageFailedImpl>
+    implements _$$MessageFailedImplCopyWith<$Res> {
+  __$$MessageFailedImplCopyWithImpl(
+      _$MessageFailedImpl _value, $Res Function(_$MessageFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$MessageFailedImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as MessageResponseModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MessageResponseModelCopyWith<$Res> get message {
+    return $MessageResponseModelCopyWith<$Res>(_value.message, (value) {
+      return _then(_value.copyWith(message: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$MessageFailedImpl implements _MessageFailed {
+  const _$MessageFailedImpl(this.message);
+
+  @override
+  final MessageResponseModel message;
+
+  @override
+  String toString() {
+    return 'StockState.messageFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MessageFailedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MessageFailedImplCopyWith<_$MessageFailedImpl> get copyWith =>
+      __$$MessageFailedImplCopyWithImpl<_$MessageFailedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(NetworkExceptions networkExceptions) dioError,
+    required TResult Function() stockLoading,
+    required TResult Function(StockResponseModel stockResponseModel) dataStock,
+    required TResult Function(DetailStockResponseModel detailResponseModel)
+        datadetailStock,
+    required TResult Function(DataSatuanResponseModel dataSatuanResponseModel)
+        satuan,
+    required TResult Function(MessageResponseModel message) messageSuccess,
+    required TResult Function(MessageResponseModel message) messageFailed,
+  }) {
+    return messageFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(NetworkExceptions networkExceptions)? dioError,
+    TResult? Function()? stockLoading,
+    TResult? Function(StockResponseModel stockResponseModel)? dataStock,
+    TResult? Function(DetailStockResponseModel detailResponseModel)?
+        datadetailStock,
+    TResult? Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult? Function(MessageResponseModel message)? messageSuccess,
+    TResult? Function(MessageResponseModel message)? messageFailed,
+  }) {
+    return messageFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(NetworkExceptions networkExceptions)? dioError,
+    TResult Function()? stockLoading,
+    TResult Function(StockResponseModel stockResponseModel)? dataStock,
+    TResult Function(DetailStockResponseModel detailResponseModel)?
+        datadetailStock,
+    TResult Function(DataSatuanResponseModel dataSatuanResponseModel)? satuan,
+    TResult Function(MessageResponseModel message)? messageSuccess,
+    TResult Function(MessageResponseModel message)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageFailed != null) {
+      return messageFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DioError value) dioError,
+    required TResult Function(_StockLoading value) stockLoading,
+    required TResult Function(_DataStock value) dataStock,
+    required TResult Function(_DatadetailStock value) datadetailStock,
+    required TResult Function(_Satuan value) satuan,
+    required TResult Function(_MessageSuccess value) messageSuccess,
+    required TResult Function(_MessageFailed value) messageFailed,
+  }) {
+    return messageFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DioError value)? dioError,
+    TResult? Function(_StockLoading value)? stockLoading,
+    TResult? Function(_DataStock value)? dataStock,
+    TResult? Function(_DatadetailStock value)? datadetailStock,
+    TResult? Function(_Satuan value)? satuan,
+    TResult? Function(_MessageSuccess value)? messageSuccess,
+    TResult? Function(_MessageFailed value)? messageFailed,
+  }) {
+    return messageFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DioError value)? dioError,
+    TResult Function(_StockLoading value)? stockLoading,
+    TResult Function(_DataStock value)? dataStock,
+    TResult Function(_DatadetailStock value)? datadetailStock,
+    TResult Function(_Satuan value)? satuan,
+    TResult Function(_MessageSuccess value)? messageSuccess,
+    TResult Function(_MessageFailed value)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageFailed != null) {
+      return messageFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MessageFailed implements StockState {
+  const factory _MessageFailed(final MessageResponseModel message) =
+      _$MessageFailedImpl;
+
+  MessageResponseModel get message;
+  @JsonKey(ignore: true)
+  _$$MessageFailedImplCopyWith<_$MessageFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

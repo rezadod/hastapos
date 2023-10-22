@@ -17,7 +17,7 @@ import 'package:hastapos/injectable.dart';
 import 'package:hastapos/presentation/controller/card_product.dart';
 import 'package:hastapos/presentation/detail_cashier_page.dart';
 import 'package:hastapos/presentation/keranjang_page.dart';
-import 'package:hastapos/presentation/report_page.dart';
+import 'package:hastapos/presentation/report/report_page.dart';
 import 'package:hastapos/presentation/stock/stock_page.dart';
 import 'package:hastapos/utils/user_session.dart' as userSession;
 
@@ -51,16 +51,16 @@ class _CashierPageState extends State<CashierPage> {
     username = accessToken.dataUser!.username;
 
     toko = accessToken.dataUser!.email;
-    controller.foundListStock = controller.listStock;
+    controller.foundListCashier = controller.listcashier;
     super.initState();
   }
 
   void _runFilter(String enteredKeyword) {
     List<DataStock> results = [];
     if (enteredKeyword.isEmpty) {
-      results = controller.listStock;
+      results = controller.listcashier;
     } else {
-      results = controller.listStock
+      results = controller.listcashier
           .where((user) => user.namaProduk
               .toLowerCase()
               .contains(enteredKeyword.toLowerCase()))
@@ -68,7 +68,7 @@ class _CashierPageState extends State<CashierPage> {
     }
 
     setState(() {
-      controller.foundListStock.value = results;
+      controller.foundListCashier.value = results;
     });
   }
 
@@ -136,10 +136,12 @@ class _CashierPageState extends State<CashierPage> {
               leading: const HeroIcon(HeroIcons.archiveBox),
               visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
               dense: true,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const StockPage()),
-              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const StockPage()),
+                );
+              },
               title: Text(
                 'Stock Barang',
                 style: tBody,
@@ -229,9 +231,10 @@ class _CashierPageState extends State<CashierPage> {
                   builder: (BuildContext context) {
                     return IconButton(
                       icon: const HeroIcon(
-                        HeroIcons.bars3BottomLeft,
+                        HeroIcons.bars4,
                         style: HeroIconStyle.solid,
                         color: Colors.black,
+                        size: 30,
                       ),
                       onPressed: () {
                         Scaffold.of(context).openDrawer();
@@ -253,21 +256,22 @@ class _CashierPageState extends State<CashierPage> {
                   state.maybeMap(
                     orElse: () {},
                     dataStock: (value) {
-                      controller.listStock
+                      controller.listcashier
                           .addAll(value.stockResponseModel.dataStock);
                     },
                   );
                 },
                 child: Obx(
-                  () => controller.foundListStock.isNotEmpty
+                  () => controller.foundListCashier.isNotEmpty
                       ? SliverList(
                           delegate: SliverChildBuilderDelegate(
                             (BuildContext context, int index) {
-                              var data = controller.foundListStock[index];
+                              var data = controller.foundListCashier[index];
                               return Container(
                                 margin: EdgeInsets.only(
                                     bottom: index ==
-                                            controller.foundListStock.length - 1
+                                            controller.foundListCashier.length -
+                                                1
                                         ? 80
                                         : 10,
                                     left: 5,
@@ -295,7 +299,7 @@ class _CashierPageState extends State<CashierPage> {
                                 ),
                               );
                             },
-                            childCount: controller.foundListStock.length,
+                            childCount: controller.foundListCashier.length,
                           ),
                         )
                       : SliverToBoxAdapter(
