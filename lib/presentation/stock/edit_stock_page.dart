@@ -349,7 +349,7 @@ class EditStockPage extends StatelessWidget {
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SubmitButton(ontap: () {}, title: "Ubah"),
+          child: SubmitButton(color: primaryColor, ontap: () {}, title: "Ubah"),
         ));
   }
 }

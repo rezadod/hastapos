@@ -4,7 +4,12 @@ import 'package:hastapos/utils/style.dart';
 class SubmitButton extends StatelessWidget {
   VoidCallback ontap;
   String title;
-  SubmitButton({super.key, required this.ontap, required this.title});
+  Color color;
+  SubmitButton(
+      {super.key,
+      required this.ontap,
+      required this.title,
+      required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +18,7 @@ class SubmitButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: primaryColor, shape: StadiumBorder()),
+            backgroundColor: color, shape: StadiumBorder()),
         onPressed: ontap,
         child: Text(
           title,

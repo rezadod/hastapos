@@ -1,16 +1,33 @@
 // ignore_for_file: sort_child_properties_last
-import 'package:hastapos/domain/keranjang/request/keranjang_request_model.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:heroicons/heroicons.dart';
-import 'package:hastapos/presentation/controller/card_product.dart';
-import 'package:hastapos/presentation/keranjang_page.dart';
-import 'package:hastapos/presentation/stock/edit_stock_page.dart';
-import 'package:hastapos/presentation/stock/tambah_stock_page.dart';
-import 'package:hastapos/utils/style.dart';
 
-import '../controller/controller.dart';
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
+import 'package:hastapos/application/stock/stock_cubit.dart';
+import 'package:hastapos/domain/auth/response/login_response_model.dart';
+import 'package:hastapos/domain/stock/response/stock_response_model.dart';
+import 'package:hastapos/presentation/controller/controller.dart';
+import 'package:hastapos/presentation/stock/tambah_stock_page.dart';
+import 'package:hastapos/utils/price_format.dart';
+import 'package:hastapos/utils/style.dart';
+import 'package:heroicons/heroicons.dart';
+
+import 'package:hastapos/injectable.dart';
+import 'package:hastapos/presentation/controller/card_product.dart';
+import 'package:hastapos/presentation/detail_cashier_page.dart';
+import 'package:hastapos/presentation/keranjang_page.dart';
+import 'package:hastapos/presentation/report/report_page.dart';
+import 'package:hastapos/presentation/stock/stock_page.dart';
+import 'package:hastapos/utils/user_session.dart' as userSession;
+
+import 'package:badges/badges.dart' as badges;
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:sliding_sheet2/sliding_sheet2.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
 class StockPage extends StatefulWidget {
   const StockPage({super.key});
@@ -21,40 +38,38 @@ class StockPage extends StatefulWidget {
 
 class _StockPageState extends State<StockPage> {
   final controller = Get.put(Controller());
-  List<KeranjangRequestModel> dataArray = [];
+  late String username;
+  late String toko;
 
-  final List<Map<String, dynamic>> _allUsers = [
-    {"id": 1, "name": "Cat", "age": 293123},
-    {"id": 2, "name": "Peralon", "age": 4022},
-    {"id": 3, "name": "Kursi", "age": 53},
-  ];
+  final stockCubit = getIt<StockCubit>();
 
-  // This list holds the data for the list view
-  List<Map<String, dynamic>> _foundUsers = [];
   @override
   initState() {
-    // at the beginning, all users are shown
-    _foundUsers = _allUsers;
+    stockCubit.getDataStock();
+    final data = GetStorage().read(userSession.LOCAL);
+    var accessToken = LoginResponseModel.fromJson(jsonDecode(data));
+
+    username = accessToken.dataUser!.username;
+
+    toko = accessToken.dataUser!.email;
+    controller.foundListStock = controller.listStock;
     super.initState();
   }
 
-  // This function is called whenever the text field changes
   void _runFilter(String enteredKeyword) {
-    List<Map<String, dynamic>> results = [];
+    List<DataStock> results = [];
     if (enteredKeyword.isEmpty) {
-      // if the search field is empty or only contains white-space, we'll display all users
-      results = _allUsers;
+      results = controller.listStock;
     } else {
-      results = _allUsers
-          .where((user) =>
-              user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+      results = controller.listStock
+          .where((user) => user.namaProduk
+              .toLowerCase()
+              .contains(enteredKeyword.toLowerCase()))
           .toList();
-      // we use the toLowerCase() method to make it case-insensitive
     }
 
-    // Refresh the UI
     setState(() {
-      _foundUsers = results;
+      controller.foundListStock.value = results;
     });
   }
 
@@ -87,22 +102,12 @@ class _StockPageState extends State<StockPage> {
                         onChanged: (value) => _runFilter(value),
                       )
                     : Text(
-                        'Stok Barang',
+                        toko,
                         style: titleStyle.copyWith(
                           fontSize: 18,
                         ),
                       ),
                 backgroundColor: Colors.white,
-                leading: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const HeroIcon(
-                    HeroIcons.arrowLeft,
-                    size: 22,
-                    color: Colors.black,
-                  ),
-                ),
                 elevation: 0.5,
                 actions: [
                   GestureDetector(
@@ -125,44 +130,71 @@ class _StockPageState extends State<StockPage> {
                 floating: true,
               ),
             ),
-            _foundUsers.isNotEmpty
-                ? SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                        var data = _foundUsers[index];
-                        return Container(
-                            margin: EdgeInsets.only(
-                                bottom:
-                                    index == _foundUsers.length - 1 ? 80 : 10,
-                                left: 5,
-                                right: 10),
-                            child: CardProduct(
-                              action: 'Ubah',
-                              namaProduct: data['name'],
-                              stock: data['age'].toString(),
-                              ontap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const EditStockPage(),
+            BlocProvider(
+              create: (context) => stockCubit,
+              child: BlocListener<StockCubit, StockState>(
+                listener: (context, state) {
+                  state.maybeMap(
+                    orElse: () {},
+                    dataStock: (value) {
+                      controller.listStock
+                          .addAll(value.stockResponseModel.dataStock);
+                    },
+                  );
+                },
+                child: Obx(
+                  () => controller.foundListStock.isNotEmpty
+                      ? SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (BuildContext context, int index) {
+                              var data = controller.foundListStock[index];
+                              return Container(
+                                margin: EdgeInsets.only(
+                                    bottom: index ==
+                                            controller.foundListStock.length - 1
+                                        ? 80
+                                        : 10,
+                                    left: 5,
+                                    right: 10),
+                                child: InkWell(
+                                  splashColor: Colors.grey.withOpacity(0.2),
+                                  onTap: () {
+                                    // Future.delayed(
+                                    //   const Duration(milliseconds: 100),
+                                    //   () {
+                                    //     modalFilter(context);
+                                    //   },
+                                    // );
+                                  },
+                                  child: CardProduct(
+                                    action: "Tambah",
+                                    namaProduct: data.namaProduk,
+                                    stock: data.hargaBeli.toString(),
+                                    ontap: () {
+                                      Get.to(DetailCashier(
+                                        id: data.id,
+                                      ));
+                                    },
                                   ),
-                                );
-                              },
-                            ));
-                      },
-                      childCount: _foundUsers.length,
-                    ),
-                  )
-                : SliverToBoxAdapter(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Kosong',
-                        style: titleStyle.copyWith(
-                            color: Colors.red, fontSize: 40),
-                      ),
-                    ),
-                  )
+                                ),
+                              );
+                            },
+                            childCount: controller.foundListStock.length,
+                          ),
+                        )
+                      : SliverToBoxAdapter(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Kosong',
+                              style: titleStyle.copyWith(
+                                  color: Colors.red, fontSize: 12),
+                            ),
+                          ),
+                        ),
+                ),
+              ),
+            )
           ],
         ),
       ),
